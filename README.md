@@ -6,6 +6,7 @@ Open-Source Persian Reposirory Management System
 - Fork & Pull Request
 - Profile Page
 - Issues
+- Admin Page
 
 ## License
 This project license under the **GPL-V3** License, read the [License](LICENSE)

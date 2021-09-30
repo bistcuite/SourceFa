@@ -8,7 +8,7 @@ Open-Source Persian Reposirory Management System
 - Issues
 
 ## License
-This project license under the GPL-V3 License, read the [License](LICENSE)
+This project license under the **GPL-V3** License, read the [License](LICENSE)
 
 ## About
 Copyright(c) SourceFa Team, \

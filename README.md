@@ -4,7 +4,7 @@ Open-Source Persian Reposirory Management System
 ## Features
 - Private and Public Repos
 - Fork & Pull Request
-- Profile Page(contains resume, phone, email, your place, your work position,etc)
+- Profile Page
 - Issues
 
 ## License

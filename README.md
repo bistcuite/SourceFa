@@ -7,6 +7,7 @@ Open-Source Persian Reposirory Management System
 - Profile Page
 - Issues
 - Admin Page
+- Explorer
 
 ## Get Started
 - Clone SourceFa :
@@ -29,6 +30,14 @@ Password:
 Password (again):
 $ python manage.py runserver
 ```
+
+## Screenshots
+<!--
+![1]()
+![2]()
+![3]()
+![4]()
+-->
 ## License
 This project license under the **GPL-V3** License, read the [License](LICENSE)
 

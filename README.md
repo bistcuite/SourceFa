@@ -8,6 +8,7 @@ Open-Source Persian Reposirory Management System
 - Issues
 - Admin Page
 - Explorer
+- RESTful API
 
 ## Get Started
 - Clone SourceFa :

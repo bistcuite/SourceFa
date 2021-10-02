@@ -42,5 +42,5 @@ $ python manage.py runserver
 This project license under the **GPL-V3** License, read the [License](LICENSE)
 
 ## About
-Copyright (c) **SourceFa Team**, \
+Copyright 2021 (c) **SourceFa Team**, \
 all rights reserved.

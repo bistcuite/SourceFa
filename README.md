@@ -9,6 +9,8 @@ Open-Source Persian Reposirory Management System
 - Admin Page
 - Explorer
 - RESTful API
+- Git Support
+- QT Based Desktop Client
 
 ## Get Started
 - Clone SourceFa :

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row"></div>
+    <div class="row"></div>
+
+    <div class="row">
+        <div class="col">
+            <p class="card-title" style="text-align: left;font-size: 22px;"><a href="/{{user_profile}}">{{user_profile}}</a>/<a href="/{{user_profile}}/{{ repo_name }}">{{ repo_name }}</a></p>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

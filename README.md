@@ -5,15 +5,16 @@ Start project: 2021-10-1
 First Commit On SourceFa : NotLunched
 
 ## Features
-- Private and Public Repos
-- Fork & Pull Request
-- Profile Page
-- Issues
-- Admin Page
-- Explorer
-- RESTful API
-- Git Support
-- QT Based Desktop Client
+- [ ] Public Repos**[WIP]**
+- [ ] Private Repos
+- [ ] Commit to repo
+- [ ] Fork & Pull Request
+- [ ] Profile Page
+- [ ] Issues
+- [ ] Admin Page
+- [ ] Explorer
+- [ ] RESTful API
+- [ ] QT Based Desktop Client
 
 ## Get Started
 - Clone SourceFa :

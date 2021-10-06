@@ -41,12 +41,10 @@ $ python manage.py runserver
 ```
 
 ## Screenshots
-<!--
-![1]()
-![2]()
-![3]()
-![4]()
--->
+![1](screenshots/1.jpg)
+![2](screenshots/2.jpg)
+![3](screenshots/3.jpg)
+
 ## License
 This project license under the **GPL-V3** License, read the [License](LICENSE)
 

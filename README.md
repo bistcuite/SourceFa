@@ -6,11 +6,11 @@ Start project: 2021-10-1
 First Commit On SourceFa : NotLunched
 
 ## Features
-- [ ] Public Repos**[WIP]**
+- [x] Public Repos
 - [ ] Private Repos
-- [ ] Commit to repo
+- [ ] Commit to repo**[WIP]**
 - [ ] Fork & Pull Request
-- [ ] Profile Page
+- [ ] Profile Page**[WIP]**
 - [ ] Issues
 - [ ] Admin Page
 - [ ] Explorer

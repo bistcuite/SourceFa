@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<br/>
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+      </div>
+    <div class="row align-items-center card  ">
+        <div class="card">
+            <div class="card-header">
+                مخزن جدید
+            </div>
+            
+            <div class="card-body">
+            <form action="{% url 'uploadrepo' %}" method="POST">
+                {% csrf_token %}
+                
+                <br>
+                <div class="form-group">
+                    {{ form.commit.label_tag }}
+                    {{ form.commit }}
+
+                </div>
+                <div class="form-group">
+                    {{ form.files.label_tag }}
+                    {{ form.files }}
+                </div>
+            
+                <button type="submit" class="btn btn-primary">کامیت در مخزن</button> 
+            </form>
+            </div>
+            <br>
+        </div>
+    </div>
+
+      <div class="col-sm"></div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -45,6 +45,7 @@ $ python manage.py runserver
 ![1](screenshots/1.jpg)
 ![2](screenshots/2.jpg)
 ![3](screenshots/3.jpg)
+![4](screenshots/4.jpg)
 
 ## License
 This project license under the **GPL-V3** License, read the [License](LICENSE)

@@ -19,7 +19,7 @@ First Commit On SourceFa : NotLunched
 - [ ] QT Based Desktop Client
 
 ## Get Started
-- Clone SourceFa :
+- Clone SourceFa's Source:
 ```
 git clone https://github.com/SourceFa/SourceFa.git
 ```

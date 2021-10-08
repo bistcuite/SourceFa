@@ -18,6 +18,7 @@ First Commit On SourceFa : NotLunched
 - [ ] RESTful API
 - [ ] Based On Git Version Control System
 - [ ] QT Based Desktop Client
+- [ ] Branching
 
 ## Get Started
 - Clone SourceFa's Source:

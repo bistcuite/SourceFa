@@ -1,3 +1,19 @@
+@font-face {
+    font-family: Vazir;
+    font-size: 400;
+    src:    url('../fonts/vazir.eot?') format('eot'),
+            url('../fonts/vazir.woff') format('woff'),
+            url('../fonts/vazir.ttf') format('truetype');
+}
+* {font-family:Vazir;}
+
+hr {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      border: 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 body{
     margin-top:20px;
     color: #1a202c;
@@ -51,3 +67,4 @@ body{
 .shadow-none {
     box-shadow: none!important;
 }
+

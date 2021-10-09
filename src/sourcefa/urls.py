@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, re_path, include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from core import views as core_views
 from django.conf.urls.static import static
@@ -16,7 +16,7 @@ urlpatterns = [
     path('<user_profile>/<repo_name>/', core_views.viewrepo,name='viewrepo'),
     path('<user_profile>/<repo_name>/upload', core_views.uploadrepo,name='uploadrepo'),
     path('<user_profile>/',core_views.profile,name='profile')
-    
+    #re_path(r'^<user_profile>/<repo_name>/tree/(?P<path>[a-zA-Z0-9-\/]+)',core_views.treerepo,name='treerepo'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

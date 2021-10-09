@@ -11,6 +11,7 @@ import os
 from django.core.files.storage import FileSystemStorage
 from user.models import CustomUser
 
+# main page
 def index(request):
     repos = Repo.objects.all()
     context = {
@@ -18,7 +19,7 @@ def index(request):
     }
     return render(request, 'index.html',context)
 
-
+# new repo page
 def newrepo(request):
     form = NewRepoForm()
     # if this is a POST request we need to process the form data
@@ -39,6 +40,7 @@ def newrepo(request):
 
     return render(request, 'newrepo.html',{'form':form})
 
+# view repo page
 def viewrepo(request,user_profile,repo_name):
     if Repo.objects.filter(repo_name=repo_name,user_id=user_profile).exists():
         readme = None
@@ -59,6 +61,7 @@ def viewrepo(request,user_profile,repo_name):
     else :
         raise Http404
 
+# commit to repo with upload page
 def uploadrepo(request,user_profile,repo_name):
     form = FileUploadForm()
     if request.method == 'POST':
@@ -66,14 +69,13 @@ def uploadrepo(request,user_profile,repo_name):
 
         if form.is_valid():
             commit = form.cleaned_data['commit']
+            files_names = request.FILES['files']
             files = request.FILES.getlist('files')
 
             repo_path = os.path.join(BASE_DIR,REPO_ROOT,user_profile,repo_name)
             for file in files :
-                fs = FileSystemStorage()
-                file_ = fs.save(os.path.join(repo_path,file.name), file)
-                fileurl = fs.url(file_)
-            
+                with open(os.path.join(repo_path,file.name),'w') as f:
+                    f.write(str(file.read()))
             return HttpResponseRedirect(f'/{request.user.username}/{repo_name}')
             
             
@@ -84,6 +86,7 @@ def uploadrepo(request,user_profile,repo_name):
     }
     return render(request, 'uploadrepo.html',context)
 
+# user profile page
 def profile(request,user_profile):
     if CustomUser.objects.filter(username=user_profile).exists():
         context = {
@@ -95,5 +98,5 @@ def profile(request,user_profile):
     else :
         raise Http404
 
-    
-    
+def treerepo(request,user_profile,repo_name,path):
+    pass

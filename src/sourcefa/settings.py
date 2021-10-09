@@ -3,7 +3,7 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'secretkey'
+SECRET_KEY = 'secret key'
 
 DEBUG = True
 

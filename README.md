@@ -9,7 +9,7 @@ First Commit On SourceFa : NotLunched
 - [x] Public Repos
 - [ ] Private Repos
 - [x] Markdown Based Readme
-- [x] Commit to repo **[WIP]**
+- [x] Commit to repo 
 - [ ] Explore Repo Files **[WIP]**
 - [ ] Fork & Pull Request
 - [x] Profile Page

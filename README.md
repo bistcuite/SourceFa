@@ -9,10 +9,10 @@ First Commit On SourceFa : NotLunched
 - [x] Public Repos
 - [ ] Private Repos
 - [x] Markdown Based Readme
-- [x] Commit to repo
-- [ ] Explore Repo Files
+- [x] Commit to repo**[WIP]**
+- [ ] Explore Repo Files**[WIP]**
 - [ ] Fork & Pull Request
-- [ ] Profile Page**[WIP]**
+- [x] Profile Page
 - [ ] Issues
 - [ ] Admin Page
 - [ ] Explorer
@@ -48,6 +48,9 @@ $ python manage.py runserver
 ![2](screenshots/2.jpg)
 ![3](screenshots/3.jpg)
 ![4](screenshots/4.jpg)
+![5](screenshots/5.jpg)
+![6](screenshots/6.jpg)
+![7](screenshots/7.jpg)
 
 ## License
 This project license under the **GPL-V3** License, read the [License](LICENSE)

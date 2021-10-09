@@ -3,7 +3,7 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-nazd-*vy(2)8m@+@lt4(k5!!r!c311f=o1*fss6p&i9^%zmo&c'
+SECRET_KEY = 'secretkey'
 
 DEBUG = True
 
@@ -21,6 +21,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    'markdownify.apps.MarkdownifyConfig',
+
     'core',
     'user',
 ]
@@ -96,3 +98,48 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REPO_ROOT = os.path.join(BASE_DIR,'repos')
+REPO_URL = '/repo/'
+
+MARKDOWNIFY = {
+    "default": {
+        "WHITELIST_TAGS": [
+            'h1',
+            'h2',
+            'h3',
+            'h4',
+            'h5',
+            'h6',
+            'a',
+            'abbr',
+            'acronym',
+            'b',
+            'blockquote',
+            'em',
+            'i',
+            'li',
+            'ol',
+            'p',
+            'strong',
+            'ul',
+            'img',
+            'code',
+            'pre',
+        ],
+        "WHITELIST_ATTRS": [
+            'href',
+            'src',
+            'alt',
+        ],
+        "LINKIFY_TEXT": {
+            "PARSE_URLS": True,
+
+            # Next key/value-pairs only have effect if "PARSE_URLS" is True
+            "PARSE_EMAIL": True,
+            "CALLBACKS": [],
+            "SKIP_TAGS": [],
+        },
+        "SKIP_TAGS": [
+            'script',
+        ]
+    }
+}

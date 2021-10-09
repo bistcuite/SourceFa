@@ -22,6 +22,16 @@ class NewRepoForm(forms.Form):
     )
 
 class FileUploadForm(forms.Form):
+    files = forms.FileField(
+                                widget=forms.ClearableFileInput(
+                                    attrs={
+                                        'class' : 'form-control-file',
+                                        'multiple': True,
+                                    }    
+                                ),
+                                label='فایل ها را انتخاب کنید'
+    )
+
     commit = forms.CharField(
                                 widget=forms.TextInput(attrs={
                                         'class': 'form-control',
@@ -30,13 +40,4 @@ class FileUploadForm(forms.Form):
                                 ),
                                 label='عنوان کامیت',
                                 max_length=100
-    )
-
-    files = forms.FileField(
-                                    widget=forms.ClearableFileInput(
-                                        attrs={
-                                            'class' : 'form-control-file',
-                                            'multiple': True,
-                                        }
-                                    )
     )

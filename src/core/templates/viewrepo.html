@@ -1,15 +1,28 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load markdownify %}
 
 {% block content %}
 <br/>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+		
+		<div class="col-sm-8">
+			<p style="text-align: left;font-size: 22px;"><a href="/{{repo.user_id}}">{{repo.user_id}}</a>/<a href="/{{repo.user_id}}/{{ repo.repo_name }}">{{ repo.repo_name }}</a></p>
+			<p style="text-align: left;font-size: 22px;"></p>
+		</div>
+		
+</div>
+
+<hr/>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
-            
-			<br/>
-			<div class="card" style="width: 18rem;">
+            <br/>
+			<div class="card">
 				<div class="card-body">
 				  <h5 class="card-title">درباره مخزن</h5>
 				  <!-- <h6 class="card-subtitle mb-2 text-muted"></h6> -->
@@ -17,16 +30,15 @@
 				  <!-- <a href="#" class="card-link"></a> -->
 				</div>
 			  </div>
+			
         </div>
-    
+		
         <!-- <div class="col">.row-6 .row-md-4</div>
 
         <div class="col">.row-6 .row-md-4</div> -->
 
         <div class="col-sm-8">
-            <p style="text-align: left;font-size: 22px;"><a href="/{{repo.user_id}}">{{repo.user_id}}</a>/<a href="/{{repo.user_id}}/{{ repo.repo_name }}">{{ repo.repo_name }}</a></p>
-            <p style="text-align: left;font-size: 22px;"></p>
-            
+		<br/>
 			<div class="btn-group">
 				<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				  دریافت
@@ -36,37 +48,54 @@
 				  <div class="dropdown-divider"></div>
 				  <pre class="dropdown-item">git clone https://example.com/{{repo.user_id}}/{{ repo.repo_name }}</pre>
 				</div>
-
-				
 			</div>
 
 			<div class="btn-group">
 				<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				  فایل جدید
+					فایل جدید
 				</button>
-
+			
 				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
 					<a class="dropdown-item" href="#">ساخت فایل جدید</a>
 					<a class="dropdown-item" href="{% url 'uploadrepo' repo.user_id repo.repo_name %}">آپلود فایل جدید</a>
 				</div>
-
-				
 			</div>
-			  
+						
+			<br/>
+			<br/>
 				
-			<br/>
-			<br/>
-            <div class="card">
-                <div class="card-header">
-                  مرور فایل های مخزن
-                </div>
-                <ul style="text-align:left;" class="list-group list-group-flush">
-                    <li class="list-group-item">main.py</li>
-                    <li class="list-group-item">setup.py</li>
-                    <li class="list-group-item">picture.png</li>
-                    <li class="list-group-item">README.md</li>
-                </ul>
-            </div>              
+				{% if files_len != 0 %}
+            		<div class="card">
+                		<div class="card-header">
+                  		مرور فایل های مخزن
+                		</div>
+                		<ul style="text-align:left;" class="list-group list-group-flush">
+							{% for file in files %}
+                    		<li	li class="list-group-item">{{file}}</li>
+							{% endfor %}
+                		</ul>
+           	 		</div>   
+            
+					{% if readme != None %}
+					<br/>
+            		<div class="card">
+            			<div class="card-header">
+                			من را بخوان
+              			</div>
+              
+            			<div align="left" class="card-body" id="content">
+							{{ readme |markdownify }}
+						</div>
+          			</div>
+					{% endif %}
+					  
+				{% else %}
+					<center>
+						<img src="{% static 'images/empty.png' %}"/>
+						<p style="font-size: 22px;">در مخزن فایلی وجود ندارد</p>
+					</center>
+				{% endif %}
+			</div>
     </div>
 </div>
 <br/>

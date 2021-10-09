@@ -12,26 +12,17 @@
     <div class="row align-items-center card  ">
         <div class="card">
             <div class="card-header">
-                مخزن جدید
+                آپلود فایل در مخزن
             </div>
             
             <div class="card-body">
-            <form action="{% url 'uploadrepo' %}" method="POST">
-                {% csrf_token %}
+                <form action="{% url 'uploadrepo' user_id repo_name %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
                 
-                <br>
-                <div class="form-group">
-                    {{ form.commit.label_tag }}
-                    {{ form.commit }}
-
-                </div>
-                <div class="form-group">
-                    {{ form.files.label_tag }}
-                    {{ form.files }}
-                </div>
+                    {{ form.as_p}}
             
-                <button type="submit" class="btn btn-primary">کامیت در مخزن</button> 
-            </form>
+                    <button type="submit" class="btn btn-block btn-primary">کامیت در مخزن</button> 
+                </form>
             </div>
             <br>
         </div>

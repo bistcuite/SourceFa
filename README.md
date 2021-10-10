@@ -2,7 +2,6 @@
 **SourceFa** is an open-source persian reposirory management system written in django.
 
 Start project: 2021-10-1
-
 ## Features
 - [x] Public Repos
 - [ ] Private Repos

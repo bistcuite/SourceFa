@@ -3,8 +3,6 @@
 
 Start project: 2021-10-1
 
-First Commit On SourceFa : NotLunched
-
 ## Features
 - [x] Public Repos
 - [ ] Private Repos

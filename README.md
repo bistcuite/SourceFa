@@ -4,13 +4,13 @@
 Start project: 2021-10-1
 ## Features
 - [x] Public Repos
-- [ ] Private Repos
 - [x] Markdown Based Readme
 - [x] Commit to repo 
+- [x] Profile Page
 - [x] Download Zip File of repo
+- [ ] Private Repos
 - [ ] Explore Repo Files **[WIP]**
 - [ ] Fork & Pull Request
-- [x] Profile Page
 - [ ] Issues
 - [ ] Admin Page
 - [ ] Explorer

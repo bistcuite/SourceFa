@@ -1,15 +1,16 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.http import Http404
 from .models import Repo
 from .forms import *
 from .models import Repo
 from os import listdir
-from os.path import isfile, join
-from sourcefa.settings import BASE_DIR,REPO_ROOT
+from os.path import isfile, isdir
+from sourcefa.settings import BASE_DIR,REPO_ROOT,ZIP_ROOT
 import os
 from django.core.files.storage import FileSystemStorage
 from user.models import CustomUser
+from utils.zip import *
 
 # main page
 def index(request):
@@ -32,10 +33,15 @@ def newrepo(request):
             desc = form.cleaned_data['desc']
 
             repo = Repo(repo_name=repo_name,user_id=request.user.username,desc=desc)
-            repo.save()
+            
             
             repo_path = os.path.join(BASE_DIR,REPO_ROOT,request.user.username,repo_name)
-            os.mkdir(repo_path)
+
+            zipfile_path = os.path.join(BASE_DIR,ZIP_ROOT,request.user.username,repo_name)
+            os.makedirs(zipfile_path)
+            os.makedirs(repo_path)
+            repo.save()
+                
             return HttpResponseRedirect(f'/{request.user.username}/{repo_name}')
 
     return render(request, 'newrepo.html',{'form':form})
@@ -46,7 +52,7 @@ def viewrepo(request,user_profile,repo_name):
         readme = None
 
         repo_path = os.path.join(BASE_DIR,REPO_ROOT,user_profile,repo_name)
-        files_in_repo = [f for f in listdir(repo_path) if isfile(join(repo_path, f))]
+        files_in_repo = [f for f in listdir(repo_path) if isfile(os.path.join(repo_path, f))]
 
         if "README.md" in files_in_repo :
             readme = open(os.path.join(BASE_DIR,REPO_ROOT,user_profile,repo_name,"README.md"),encoding='utf-8').read()
@@ -72,10 +78,15 @@ def uploadrepo(request,user_profile,repo_name):
             files_names = request.FILES['files']
             files = request.FILES.getlist('files')
 
-            repo_path = os.path.join(BASE_DIR,REPO_ROOT,user_profile,repo_name)
+            repo_path = os.path.join(BASE_DIR,REPO_ROOT,request.user.username,repo_name)
             for file in files :
                 with open(os.path.join(repo_path,file.name),'w') as f:
                     f.write(str(file.read()))
+            zipfile_path = os.path.join(BASE_DIR,ZIP_ROOT,request.user.username,repo_name,f'{repo_name}-latest.zip')
+
+            zipf = zipfile.ZipFile(zipfile_path, 'w', zipfile.ZIP_DEFLATED)
+            zipdir(repo_path, zipf)
+            zipf.close()
             return HttpResponseRedirect(f'/{request.user.username}/{repo_name}')
             
             
@@ -100,3 +111,13 @@ def profile(request,user_profile):
 
 def treerepo(request,user_profile,repo_name,path):
     pass
+
+def downloadlatest(request,user_profile,repo_name):
+    zipfile_path = os.path.join(BASE_DIR,ZIP_ROOT,user_profile,repo_name,f'{repo_name}-latest.zip')
+    if isfile(zipfile_path):
+        response = HttpResponse(open(zipfile_path, 'rb').read())
+        response['Content-Type'] = 'application/zip'
+        response['Content-Disposition'] = f'attachment; filename={repo_name}-latest.zip'
+        return response
+    else :
+        raise Http404

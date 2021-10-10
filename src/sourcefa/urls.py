@@ -15,9 +15,11 @@ urlpatterns = [
     path('new/',core_views.newrepo,name='newrepo'),
     path('<user_profile>/<repo_name>/', core_views.viewrepo,name='viewrepo'),
     path('<user_profile>/<repo_name>/upload', core_views.uploadrepo,name='uploadrepo'),
+    path('<user_profile>/<repo_name>/download/latest', core_views.downloadlatest,name='downloadlatest'),
     path('<user_profile>/',core_views.profile,name='profile')
     #re_path(r'^<user_profile>/<repo_name>/tree/(?P<path>[a-zA-Z0-9-\/]+)',core_views.treerepo,name='treerepo'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.REPO_URL, document_root = settings.REPO_ROOT)
+urlpatterns += static(settings.ZIP_URL, document_root = settings.ZIP_ROOT)

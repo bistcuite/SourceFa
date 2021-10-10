@@ -44,9 +44,8 @@
 				  دریافت
 				</button>
 				<div class="dropdown-menu dropdown-menu-right">
-				  <a class="dropdown-item" href="#">دانلود فایل فشرده</a>
-				  <div class="dropdown-divider"></div>
-				  <pre class="dropdown-item">git clone https://example.com/{{repo.user_id}}/{{ repo.repo_name }}</pre>
+				  <a class="dropdown-item" href="{% url 'downloadlatest' repo.user_id repo.repo_name%}">دانلود فایل فشرده</a>
+				  <!-- <div class="dropdown-divider"></div> -->
 				</div>
 			</div>
 

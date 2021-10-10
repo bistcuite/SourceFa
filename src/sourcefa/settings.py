@@ -3,7 +3,7 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'secret key'
+SECRET_KEY = 'django-insecure-nazd-*vy(2)8m@+@lt4(k5!!r!c311f=o1*fss6p&i9^%zmo&c'
 
 DEBUG = True
 
@@ -25,6 +25,7 @@ INSTALLED_APPS = [
 
     'core',
     'user',
+    'utils',
 ]
 
 
@@ -92,13 +93,17 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'core/static'),
-    os.path.join(BASE_DIR,'repos'),
+    os.path.join(BASE_DIR,'repos/'),
+    os.path.join(BASE_DIR,'zips/'),
 )
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-REPO_ROOT = os.path.join(BASE_DIR,'repos')
+REPO_ROOT = os.path.join(BASE_DIR,'repos','repos')
 REPO_URL = '/repo/'
+
+ZIP_ROOT = os.path.join(BASE_DIR,'zips','zips')
+ZIP_URL = '/zips/'
 
 MARKDOWNIFY = {
     "default": {

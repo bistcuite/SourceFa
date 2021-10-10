@@ -1,2 +1,2 @@
-django
-django-markdownify
+django==3.2.7
+django-markdownify==0.9.0 

@@ -8,9 +8,9 @@ Start project: 1 October 2021
 - [x] Commit to repo 
 - [x] Profile Page
 - [x] Download Zip File of repo
+- [x] Explore Repo Files
 - [ ] Private Repos
-- [ ] Explore Repo Files **[WIP]**
-- [ ] Fork & Pull Request
+- [ ] Fork & Pull Request **[WIP]**
 - [ ] Issues
 - [ ] Admin Page
 - [ ] Explorer

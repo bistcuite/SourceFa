@@ -1,11 +1,11 @@
 @font-face {
-    font-family: Vazir;
+    font-family: Shabnam;
     font-size: 400;
-    src:    url('../fonts/vazir.eot?') format('eot'),
-            url('../fonts/vazir.woff') format('woff'),
-            url('../fonts/vazir.ttf') format('truetype');
+    src:    url('../fonts/Shabnam-Medium-FD.eot?') format('eot'),
+            url('../fonts/Shabnam-Medium-FD.woff') format('woff'),
+            url('../fonts/Shabnam-Medium-FD.ttf') format('truetype');
 }
-* {font-family:Vazir;}
+* {font-family:Shabnam;}
 
 hr {
       margin-top: 1rem;

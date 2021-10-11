@@ -52,16 +52,29 @@ def viewrepo(request,user_profile,repo_name):
         readme = None
 
         repo_path = os.path.join(BASE_DIR,REPO_ROOT,user_profile,repo_name)
-        files_in_repo = [f for f in listdir(repo_path) if isfile(os.path.join(repo_path, f))]
 
-        if "README.md" in files_in_repo :
+        obj = os.scandir(repo_path)
+        dirs = []
+        files = []
+        repo_is_empty = False
+        for entry in obj :
+            if entry.is_dir():
+                dirs.append(entry.name)
+            elif entry.is_file():
+                files.append(entry.name)
+
+
+        if "README.md" in files :
             readme = open(os.path.join(BASE_DIR,REPO_ROOT,user_profile,repo_name,"README.md"),encoding='utf-8').read()
-            
+        
+        if len(dirs) == 0 and len(files) == 0:
+            repo_is_empty = True
         context = {
             'repo' : Repo.objects.get(repo_name=repo_name,user_id=user_profile),
             'readme' : readme,
-            'files' : files_in_repo,
-            'files_len' : len(files_in_repo),
+            'files' : files,
+            'dirs' : dirs,
+            'repo_is_empty' : repo_is_empty,
         }
         return render(request,'viewrepo.html',context)
     else :
@@ -110,7 +123,32 @@ def profile(request,user_profile):
         raise Http404
 
 def treerepo(request,user_profile,repo_name,path):
-    pass
+    repo_path = os.path.join(BASE_DIR,REPO_ROOT,user_profile,repo_name,path)
+    if isdir(repo_path):
+        obj = os.scandir(repo_path)
+        dirs = []
+        files = []
+        dir_is_empty = False
+        for entry in obj :
+            if entry.is_dir():
+                dirs.append(entry.name)
+            elif entry.is_file():
+                files.append(entry.name)
+        if len(dirs) == 0 and len(files) == 0:
+            dir_is_empty = True
+        context = {
+            'repo' : Repo.objects.get(repo_name=repo_name,user_id=user_profile),
+            'dir' : True,
+            'dirs' : dirs,
+            'files' : files,
+            'dir_is_empty' : dir_is_empty,
+            'path' : path,
+        }
+        return render(request, 'treerepo.html',context)
+    elif isfile(repo_path):
+        pass
+    else :
+        return HttpResponse(repo_path)
 
 def downloadlatest(request,user_profile,repo_name):
     zipfile_path = os.path.join(BASE_DIR,ZIP_ROOT,user_profile,repo_name,f'{repo_name}-latest.zip')

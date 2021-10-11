@@ -3,6 +3,17 @@
 {% load markdownify %}
 
 {% block content %}
+<script type="text/javascript">
+	$(document).ready(function () {
+        $('#files_and_dirs').hide();
+
+		$('#view_code').click(function(){
+			$('#files_and_dirs').show();
+			$('#view_code').hide(1000);
+		})
+    });
+</script>
+
 <br/>
 
 <div class="container">
@@ -63,16 +74,27 @@
 			<br/>
 			<br/>
 				
-				{% if files_len != 0 %}
+				{% if repo_is_empty == False %}
             		<div class="card">
                 		<div class="card-header">
                   		مرور فایل های مخزن
                 		</div>
-                		<ul style="text-align:left;" class="list-group list-group-flush">
+                		<ul id="files_and_dirs" style="text-align:left;" class="list-group list-group-flush">
+							{% for dir in dirs %}
+                    		<li	li class="list-group-item">
+								<a href="{% url 'viewrepo' repo.user_id repo.repo_name %}/tree/{{dir}}">{{dir}}</a>
+								<svg width="24" height="24" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d=" M 418 113C 418 113 518 238 518 238C 518 238 900 238 900 238C 925 238 946 249 961 264C 976 279 988 300 988 325C 988 325 988 800 988 800C 988 825 976 846 961 861C 946 876 925 888 900 888C 900 888 100 888 100 888C 75 888 54 876 39 861C 24 846 13 825 13 800C 13 800 13 200 13 200C 13 174 25 155 40 140C 55 125 74 113 100 113C 100 113 418 113 418 113"/></svg> 
+							</li>
+							{% endfor %}
+
 							{% for file in files %}
-                    		<li	li class="list-group-item">{{file}}</li>
+                    		<li	li class="list-group-item">
+								<a href="{% url 'viewrepo' repo.user_id repo.repo_name %}/tree/{{file}}">{{file}}</a>
+								<svg width="24" height="24" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d=" M 250 75C 250 75 250 75 250 75C 250 75 649 76 649 76C 655 76 661 79 666 83C 666 83 815 228 815 228C 820 233 823 240 823 246C 823 246 825 850 825 850C 825 891 791 925 750 925C 750 925 250 925 250 925C 209 925 175 891 175 850C 175 850 175 150 175 150C 175 110 207 77 247 75C 248 75 249 75 250 75C 250 75 250 75 250 75C 250 75 250 75 250 75C 250 75 250 75 250 75M 225 150C 225 150 225 850 225 850C 225 864 236 875 250 875C 250 875 750 875 750 875C 764 875 775 864 775 850C 775 850 773 275 773 275C 773 275 650 275 650 275C 636 275 625 264 625 250C 625 250 625 126 625 126C 625 126 250 125 250 125C 250 125 250 125 250 125C 236 125 225 136 225 150C 225 150 225 150 225 150M 675 225C 675 225 740 225 740 225C 740 225 675 161 675 161C 675 161 675 225 675 225"/></svg> 
+							</li>
 							{% endfor %}
                 		</ul>
+						<button type="button" class="btn btn-light btn-block" id="view_code">نمایش کدها</button>
            	 		</div>   
             
 					{% if readme != None %}

@@ -26,7 +26,7 @@ git clone https://github.com/SourceFa/SourceFa.git
 ```
 - Go to SourceFa folder :
 ```
-$ cd SourceFa
+$ cd SourceFa/src
 ```
 - Configure Project :
 ```

@@ -11,7 +11,7 @@ Start project: 1 October 2021
 - [x] Explore Repo Files
 - [ ] Private Repos
 - [ ] Fork & Pull Request **[WIP]**
-- [ ] Issues
+- [ ] Issues **[WIP]**
 - [ ] Admin Page
 - [ ] Explorer
 - [ ] RESTful API

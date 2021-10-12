@@ -20,7 +20,7 @@ Start project: 1 October 2021
 - [ ] Branching
 
 ## Get Started
-- Clone SourceFa's Source:
+- Clone this Reposirory:
 ```
 git clone https://github.com/SourceFa/SourceFa.git
 ```

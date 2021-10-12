@@ -11,7 +11,7 @@ import os
 from django.core.files.storage import FileSystemStorage
 from user.models import CustomUser
 from utils.zip import *
-
+from utils.lang import lang
 # main page
 def index(request):
     repos = Repo.objects.all()
@@ -94,7 +94,7 @@ def uploadrepo(request,user_profile,repo_name):
             repo_path = os.path.join(BASE_DIR,REPO_ROOT,request.user.username,repo_name)
             for file in files :
                 with open(os.path.join(repo_path,file.name),'w') as f:
-                    f.write(str(file.read()))
+                    f.write(file.read().decode("utf-8") )
             zipfile_path = os.path.join(BASE_DIR,ZIP_ROOT,request.user.username,repo_name,f'{repo_name}-latest.zip')
 
             zipf = zipfile.ZipFile(zipfile_path, 'w', zipfile.ZIP_DEFLATED)
@@ -128,6 +128,7 @@ def treerepo(request,user_profile,repo_name,path):
         obj = os.scandir(repo_path)
         dirs = []
         files = []
+        readme = None
         dir_is_empty = False
         for entry in obj :
             if entry.is_dir():
@@ -136,6 +137,7 @@ def treerepo(request,user_profile,repo_name,path):
                 files.append(entry.name)
         if len(dirs) == 0 and len(files) == 0:
             dir_is_empty = True
+        
         context = {
             'repo' : Repo.objects.get(repo_name=repo_name,user_id=user_profile),
             'dir' : True,
@@ -146,7 +148,24 @@ def treerepo(request,user_profile,repo_name,path):
         }
         return render(request, 'treerepo.html',context)
     elif isfile(repo_path):
-        pass
+        file = open(repo_path,encoding="utf-8")
+        content = str(file.read())
+        filename = os.path.basename(file.name) 
+        file.close()
+        language = lang(filename)
+        readme = False
+        if language == "md" : 
+            readme = True
+        context = {
+            'repo' : Repo.objects.get(repo_name=repo_name,user_id=user_profile),
+            'file' : True,
+            'content' : content,
+            'filename' : filename,
+            'path' : path,
+            'language' : language,
+            'readme' : readme,
+        }
+        return render(request, 'treerepo.html',context)
     else :
         return HttpResponse(repo_path)
 

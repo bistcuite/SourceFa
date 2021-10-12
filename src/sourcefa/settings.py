@@ -108,6 +108,8 @@ ZIP_URL = '/zips/'
 MARKDOWNIFY = {
     "default": {
         "WHITELIST_TAGS": [
+            'div',
+
             'h1',
             'h2',
             'h3',
@@ -134,6 +136,7 @@ MARKDOWNIFY = {
             'href',
             'src',
             'alt',
+            'align',
         ],
         "LINKIFY_TEXT": {
             "PARSE_URLS": True,

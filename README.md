@@ -19,7 +19,7 @@ Start project: 1 October 2021
 - [ ] Explorer
 - [ ] RESTful API
 - [ ] Based On Git Version Control System
-- [ ] QT Based Desktop Client
+- [ ] QT Based Desktop Client(Python)
 - [ ] Branching
 
 ## Get Started

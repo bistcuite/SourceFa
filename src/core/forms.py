@@ -1,5 +1,8 @@
 from django import forms
+
+# form for create new repository
 class NewRepoForm(forms.Form):
+    # repository's name
     repo_name = forms.CharField(
                                 widget=forms.TextInput(attrs={
                                         'class': 'form-control',
@@ -9,7 +12,8 @@ class NewRepoForm(forms.Form):
                                 label='نام مخزن',
                                 max_length=50
     )
-
+    
+    # repository's description
     desc = forms.CharField(
                             widget=forms.Textarea(attrs={
                                     'class': 'form-control',
@@ -21,7 +25,9 @@ class NewRepoForm(forms.Form):
                             max_length=500
     )
 
+# form for upload file to repository
 class FileUploadForm(forms.Form):
+    # files to upload
     files = forms.FileField(
                                 widget=forms.ClearableFileInput(
                                     attrs={
@@ -31,7 +37,8 @@ class FileUploadForm(forms.Form):
                                 ),
                                 label='فایل ها را انتخاب کنید'
     )
-
+    
+    # commit title
     commit = forms.CharField(
                                 widget=forms.TextInput(attrs={
                                         'class': 'form-control',
@@ -41,3 +48,20 @@ class FileUploadForm(forms.Form):
                                 label='عنوان کامیت',
                                 max_length=100
     )
+    
+    # commit description
+    # ...
+    
+    # uploads to which dir
+    # ...
+    
+# form for create new repository
+class EditFileRepoForm(forms.Form):
+    # file name to edit
+    filename = forms.CharField(widget=forms.TextInput)
+    
+    # content to replace with current file contetn
+    content = forms.CharField(widget=forms.Textarea)
+
+    # commit title
+    commit = forms.CharField(widget=forms.TextInput)

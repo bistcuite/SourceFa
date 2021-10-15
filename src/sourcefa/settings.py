@@ -109,7 +109,6 @@ MARKDOWNIFY = {
     "default": {
         "WHITELIST_TAGS": [
             'div',
-
             'h1',
             'h2',
             'h3',
@@ -131,6 +130,9 @@ MARKDOWNIFY = {
             'img',
             'code',
             'pre',
+            'table',
+            'tr',
+            'td',
         ],
         "WHITELIST_ATTRS": [
             'href',

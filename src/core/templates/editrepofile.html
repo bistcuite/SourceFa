@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                
+            </div>
+        
+            <div class="col-sm-8">
+                <p style="text-align: left;font-size: 18px;"><a href="/{{repo.user_id}}/{{ repo.repo_name }}">{{ repo.repo_name }}/</a><a href="/{{repo.user_id}}/{{ repo.repo_name }}/tree/{{path}}">{{ path }}/</a></p>
+            </div>
+    </div>
+
+    <div class="row card">
+        <div class="card-header" style="text-align: left;">
+            {{filename}}
+        </div>
+        
+        <div class="card-body">
+            <form method="POST" action="{% url 'editrepofile' repo.user_id repo.repo_name path %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <a href="{% url 'treerepo' repo.user_id repo.repo_name path%}" class="btn btn-secondary">لغو</a>
+                            </div>
+
+                            <div class="col-sm-8" align="left">
+                                <input style="text-align:left;" class="form-control" id="filename" type="text" name="filename" placeholder="{{path}}" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <textarea style="text-align:left; direction: ltr;" class="form-control" id="content" name="content" rows="30">{{content}}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label dir="rtl" for="content">توضیح این تغییر :</label>
+                    <input class="form-control" id="commit" type="text" name="commit" placeholder="توضیح کوتاهی در مورد این تغییر بدهید">
+                </div>
+                <div align="left">
+                    <button type="submit" class="btn btn-success">ذخیره تغییرات</button>
+                </div>
+            </form>
+              
+              
+        </div>
+    </div>   
+</div>
+
+
+{% endblock %}

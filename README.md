@@ -10,7 +10,7 @@ Start project: 1 October 2021
 - [x] Download Zip File of repo
 - [x] Explore Repo Files
 - [ ] Edit & Delete Files and Folders **[WIP]**
-- [ ] Issues **[WIP]**
+- [ ] Issues
 - [ ] Private Repos
 - [ ] Fork Repository 
 - [ ] Pull Request 

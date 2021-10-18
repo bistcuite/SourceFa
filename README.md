@@ -24,7 +24,7 @@ Start project: 1 October 2021
 ## Get Started
 - Clone this Reposirory:
 ```
-git clone https://github.com/SourceFa/SourceFa.git
+$ git clone https://github.com/SourceFa/SourceFa.git
 ```
 - Go to SourceFa folder :
 ```

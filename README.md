@@ -53,7 +53,7 @@ $ python manage.py runserver
 ![7](screenshots/7.jpg)
 
 ## License
-This project licensed under the **GPL-V3** License, read the [License](LICENSE).
+This project licensed under the **GPL-V3** License, read the license [here](LICENSE).
 
 ## About
 Copyright 2021 &copy; **SourceFa Team**, \

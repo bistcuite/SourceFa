@@ -20,6 +20,7 @@ Start project: 1 October 2021
 - [ ] Based On Git Version Control System
 - [ ] QT Based Desktop Client(Python)
 - [ ] Branching
+- [ ] Gist Service
 
 ## Get Started
 - Clone this Reposirory:

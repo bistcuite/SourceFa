@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.http import Http404
-from .models import Repo
+from .models import *
 from .forms import *
 from .models import Repo 
 from os import listdir
@@ -60,8 +60,13 @@ def newrepo(request):
 def viewrepo(request,user_profile,repo_name):
     # if requested repo is exists, handles repo page, else return 404 error
     if Repo.objects.filter(repo_name=repo_name,user_id=user_profile).exists():
+        repo = Repo.objects.get(repo_name=repo_name,user_id=user_profile)
         # is repo has readme file on root folder
         readme = None
+        # stars count
+        stars = 0
+        # is user starred repo ?
+        starred = False
         # repo's path on server
         repo_path = os.path.join(BASE_DIR,REPO_ROOT,user_profile,repo_name)
         
@@ -83,13 +88,22 @@ def viewrepo(request,user_profile,repo_name):
         # is repo empty ?
         if len(dirs) == 0 and len(files) == 0:
             repo_is_empty = True
-            
+        
+        # get stars count
+        if Star.objects.filter(repo=repo).exists() :
+            stars = len(Star.objects.filter(repo=repo))
+        
+        # is user starred the repo ?
+        if Star.objects.filter(repo=repo,user=request.user).exists():
+            starred = True
         context = {
-            'repo' : Repo.objects.get(repo_name=repo_name,user_id=user_profile),
+            'repo' : repo,
             'readme' : readme,
             'files' : files,
             'dirs' : dirs,
             'repo_is_empty' : repo_is_empty,
+            'stars' : stars,
+            'starred' : starred,
         }
         return render(request,'viewrepo.html',context)
     else :
@@ -244,7 +258,7 @@ def editrepofile(request,user_profile,repo_name,path):
             'rows' : rows,
         }
         return render(request, 'editrepofile.html',context)
-    elif isfile(repo_path) and request.method == 'POST':
+    elif isfile(repo_path) and request.method == 'POST' and request.user.username == user_profile :
         filename = request.POST.get('filename','')
         content = request.POST.get('content','')
         commit = request.POST.get('commit','')
@@ -261,3 +275,20 @@ def editrepofile(request,user_profile,repo_name,path):
 def deleterepofile(request,user_profile,repo_name,path):
     # repo path on server
     repo_path = os.path.join(BASE_DIR,REPO_ROOT,user_profile,repo_name,path)
+
+# star repo api
+def starrepo(request,user_profile,repo_name):
+    if request.method == "POST" :
+        repo = Repo.objects.get(repo_name=repo_name,user_id=user_profile)
+        star = Star(repo=repo,user=request.user)
+        star.save()
+    return HttpResponseRedirect(f'/{user_profile}/{repo_name}')
+    
+# unstar repo api
+def unstarrepo(request,user_profile,repo_name):
+    if request.method == "POST" :
+        repo = Repo.objects.get(repo_name=repo_name,user_id=user_profile)
+        star = Star.objects.get(repo=repo,user=request.user)
+        star.delete()
+      
+    return HttpResponseRedirect(f'/{user_profile}/{repo_name}')

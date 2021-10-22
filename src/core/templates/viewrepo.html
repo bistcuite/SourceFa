@@ -3,6 +3,39 @@
 {% load markdownify %}
 
 {% block content %}
+<style>
+	.like-button {
+            color: #888;
+            font-size: 18px;
+            background-color: transparent;
+            border: 0.1em solid;
+            border-radius: 1em;
+            padding: 0.333em 1em 0.25em;
+            line-height: 1.2em;
+            box-shadow: 0 0.25em 1em -0.25em;
+            cursor: pointer;
+            transition: color 150ms ease-in-out, background-color 150ms ease-in-out, transform 150ms ease-in-out;
+            outline: 0;
+    }
+    .like-button:hover {
+        color: indianred;
+    }
+    .like-button:active {
+        transform: scale(0.95);
+    }
+    .like-button.selected.selected {
+        color: #FFF;
+        background-color: indianred;
+        border-color: indianred;
+    }
+    .like-button .heart-icon {
+        display: inline-block;
+        fill: currentColor;
+        width: 0.8em;
+        height: 0.8em;
+        margin-right: 0.2em;
+    }
+</style>
 <script type="text/javascript">
 	$(document).ready(function () {
         $('#files_and_dirs').hide();
@@ -10,15 +43,43 @@
 		$('#view_code').click(function(){
 			$('#files_and_dirs').show();
 			$('#view_code').hide(1000);
-		})
+		});
+
+		$('.like-button').click(function(){
+    		$('.like-button').toggleClass('selected');
+		});
     });
+
 </script>
 
 <br/>
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+			{% if starred == True %}
+			<form method="POST" action="{% url 'viewrepo' repo.user_id repo.repo_name %}unstar">
+				{% csrf_token %}
+				<button type="submit" class="like-button selected">
+					<svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+						<path d="M91.6 13A28.7 28.7 0 0 0 51 13l-1 1-1-1A28.7 28.7 0 0 0 8.4 53.8l1 1L50 95.3l40.5-40.6 1-1a28.6 28.6 0 0 0 0-40.6z"/>
+					</svg>
+					{{ stars }}
+				</button>
+			</form>
+			{% else %}
+			<form method="POST" action="{% url 'viewrepo' repo.user_id repo.repo_name %}star">
+				{% csrf_token %}
+				<button type="submit" class="like-button">
+					<svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+						<path d="M91.6 13A28.7 28.7 0 0 0 51 13l-1 1-1-1A28.7 28.7 0 0 0 8.4 53.8l1 1L50 95.3l40.5-40.6 1-1a28.6 28.6 0 0 0 0-40.6z"/>
+					</svg>
+					{{ stars }}
+				</button>
+			</form>
+			{% endif %}
+				
+		</div>
 		
 		<div class="col-sm-8">
 			<p style="text-align: left;font-size: 22px;"><a href="/{{repo.user_id}}">{{repo.user_id}}</a>/<a href="/{{repo.user_id}}/{{ repo.repo_name }}">{{ repo.repo_name }}</a></p>
@@ -59,7 +120,7 @@
 				  <!-- <div class="dropdown-divider"></div> -->
 				</div>
 			</div>
-
+			{% if repo.user_id == user.username %}
 			<div class="btn-group">
 				<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					فایل جدید
@@ -70,7 +131,7 @@
 					<a class="dropdown-item" href="{% url 'uploadrepo' repo.user_id repo.repo_name %}">آپلود فایل جدید</a>
 				</div>
 			</div>
-						
+			{% endif %}		
 			<br/>
 			<br/>
 				

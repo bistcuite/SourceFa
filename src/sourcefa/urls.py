@@ -21,6 +21,10 @@ urlpatterns = [
     
     # view repo url
     path('<user_profile>/<repo_name>/', core_views.viewrepo,name='viewrepo'),
+
+    # star repo url
+    path('<user_profile>/<repo_name>/star', core_views.starrepo,name='starrepo'),
+    path('<user_profile>/<repo_name>/unstar', core_views.unstarrepo,name='unstarrepo'),
     
     # repo files explorer url(regex based)
     re_path(r'^(?P<user_profile>[^/]+)/(?P<repo_name>[^/]+)/tree/(?P<path>.*)', core_views.treerepo,name='treerepo'),

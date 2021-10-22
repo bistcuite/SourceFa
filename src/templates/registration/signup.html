@@ -1,44 +1,58 @@
 {% extends "base.html" %}
 {% load static %}
 
-<style>
-    
-    body {
-        font-family: "Roboto", sans-serif;
-        font-size: 18px;
-        background-color: #fdfdfd;
-    }
-
-    .head_text{
-    color: white;
-  }
-    .card{
-    box-shadow: 0 16px 48px #E3E7EB;
-}
-</style>
 {% block content %}
-        <header class="masthead" >
-            <div class="overlay">
-                <div class="container">
-                    <div class="row">
-                        <div class=" col-md-8 col-md-10 mx-auto">
-                            <div class="site-heading">
-                                <h3 class="site-heading my-4 mt-3 text-white">به سورس فا خوش آمدید</h3>
-                                <p class="text-light">سورس فا یک سرویس گیت نوشته شده در جنگو است
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<br/>
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+      </div>
+    <div class="row ">
+        <div class="card">
+            <div class="card-header">
+                ثبت نام در سورس فا
             </div>
-              </header>
-        
-            <div class="container">
+            
+            <div class="card-body">
                 <form method="post">
+                    {{ form.non_field_errors }}
                     {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit">ثبت نام</button>
+
+                    <div class="form-group">
+                        <label for="id_username">نام کاربری :</label>
+                        <input style="text-align: left;" id="id_username" type="text" name="username" autocomplete="username" maxlength="150" class="form-control" autofocus required>
+                        {{ form.username.errors }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_email">ایمیل :</label>
+                        <input style="text-align: left;" id="id_email" type="email" name="email" maxlength="254" class="form-control" required>
+                        {{ form.email.errors }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_password1">رمز عبور :</label>
+                        <input style="text-align: left;" id="id_password1" type="password" name="password1" autocomplete="current-password" class="form-control" required>
+                        {{ form.password1.errors }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_password2">تایید رمز عبور :</label>
+                        <input style="text-align: left;" id="id_password2" type="password" name="password2" class="form-control" required>
+                        {{ form.password2.errors }}
+                    </div>
+
+                    <button type="submit" class="btn btn-block btn-success">ثبت نام</button>
                 </form>
+                <br/>
+                حساب کاربری دارید ؟ <a href="/profile/login">وارد شوید</a>
             </div>
+            <br>
         </div>
+    </div>
+
+      <div class="col-sm"></div>
+    </div>
+</div>
+
 {% endblock content %}

@@ -7,6 +7,8 @@ def lang(fname):
         "html" : "html",
         "css" : "css",
         "md" : "md",
+        "png" : "png",
+        "jpg" : "jpg",
     }
     tmp = fname.split(".")
     ext = tmp[len(tmp)-1]

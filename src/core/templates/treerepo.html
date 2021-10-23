@@ -76,6 +76,8 @@
                     {% load markdownify %}
 
                     {{ content |markdownify }}
+                {% elif is_picture == True %}
+                    <img style="max-width: 100%;" src="/static/repos/{{repo.user_id}}/{{repo.repo_name}}/{{path}}">
                 {% else %}
                     <pre><code class="language-{{language}}">{{content}}</code></pre>
                 {% endif %}

@@ -94,7 +94,7 @@ def viewrepo(request,user_profile,repo_name):
             stars = len(Star.objects.filter(repo=repo))
         
         # is user starred the repo ?
-        if Star.objects.filter(repo=repo,user=request.user).exists():
+        if request.user.is_authenticated and Star.objects.filter(repo=repo,user=request.user).exists():
             starred = True
         context = {
             'repo' : repo,
@@ -127,7 +127,7 @@ def uploadrepo(request,user_profile,repo_name):
             
             # write files to repo folder on server
             for file in files :
-                with open(os.path.join(repo_path,file.name),'w') as f:
+                with open(os.path.join(repo_path,file.name),'w',encoding="utf-8") as f:
                     f.write(file.read().decode("utf-8") )
             # create zip file from latest repo's source
             zipfile_path = os.path.join(BASE_DIR,ZIP_ROOT,request.user.username,repo_name,f'{repo_name}-latest.zip')
@@ -188,17 +188,26 @@ def treerepo(request,user_profile,repo_name,path):
         return render(request, 'treerepo.html',context)
     # check if requested path is a file, show file content
     elif isfile(repo_path):
-        # read the file
-        file = open(repo_path,encoding="utf-8")
-        content = str(file.read())
-        # get file name
-        filename = os.path.basename(file.name) 
-        file.close()
-        # get type of file for highlight it with prism.js
-        language = lang(filename)
+        is_picture = False
+        file = None
+        content = None
+        filename = None
+        language = None
+        readme = False
+        if path.endswith(".png") or path.endswith(".jpg") :
+            is_picture = True
+            filename = os.path.basename(os.path.join(user_profile,repo_name,path)) 
+        if is_picture != True :
+            # read the file
+            file = open(repo_path,encoding="utf-8")
+            content = str(file.read())
+            # get file name
+            filename = os.path.basename(file.name) 
+            file.close()
+            # get type of file for highlight it with prism.js
+            language = lang(filename)
         
         # check if requested file is a markdown file
-        readme = False
         if language == "md" : 
             readme = True
         context = {
@@ -209,6 +218,7 @@ def treerepo(request,user_profile,repo_name,path):
             'path' : path,
             'language' : language,
             'readme' : readme,
+            'is_picture' : is_picture,
         }
         return render(request, 'treerepo.html',context)
     else :
@@ -262,7 +272,7 @@ def editrepofile(request,user_profile,repo_name,path):
         filename = request.POST.get('filename','')
         content = request.POST.get('content','')
         commit = request.POST.get('commit','')
-        with open(repo_path,"w") as f :
+        with open(repo_path,"w",encoding="utf-8") as f :
             f.write(content)
         zipfile_path = os.path.join(BASE_DIR,ZIP_ROOT,request.user.username,repo_name,f'{repo_name}-latest.zip')
         with zipfile.ZipFile(zipfile_path, 'w', zipfile.ZIP_DEFLATED) as zipf :

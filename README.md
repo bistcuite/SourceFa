@@ -50,5 +50,5 @@ You can see all screenshots from sourcefa, [here](/screenshots/).
 This project licensed under the **GPL-V3** License, read the license [here](LICENSE).
 
 ## About
-Copyright 2021 &copy; **SourceFa Team**, \
+Copyright 2021 &copy; **SourceFa**, \
 all rights reserved.

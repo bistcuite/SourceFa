@@ -9,7 +9,8 @@ Project Started At 1 October 2021
 - [x] Profile Page
 - [x] Download Zip File of repo
 - [x] Explore Repo Files
-- [x] Edit & Delete Files and Folders **[WIP]**
+- [x] Edit Files Online 
+- [ ] Delete Files and Folders **[WIP]**
 - [ ] Issues **[WIP]**
 - [ ] Private Repos
 - [ ] Fork Repository 

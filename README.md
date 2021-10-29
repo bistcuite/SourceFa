@@ -1,7 +1,5 @@
 <div align="center">
 
-![logo](logo.png)
-
 # SourceFa
 
 </div>

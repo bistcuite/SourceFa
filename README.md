@@ -23,11 +23,13 @@ Project Started At 1 October 2021
 - [ ] Admin Page
 - [ ] Explorer
 - [ ] RESTful API
+- [ ] Status(Story)
 - [ ] Based On Git Version Control System
 - [ ] QT Based Desktop Client(Python)
 - [ ] Branching
 - [ ] Gist Service
 - [ ] Support LaTex
+
 ## Get Started
 - Clone this Reposirory:
 ```

@@ -23,7 +23,7 @@ Project Started At 1 October 2021
 - [ ] Admin Page
 - [ ] Explorer
 - [ ] RESTful API
-- [ ] Status(Story)
+- [ ] WhatsApp-Like Status(Story)
 - [ ] Based On Git Version Control System
 - [ ] QT Based Desktop Client(Python)
 - [ ] Branching

@@ -29,7 +29,7 @@ Project Started At 1 October 2021
 - [ ] Branching
 - [ ] Gist Service
 - [ ] Support LaTex
-- [ ] Git like system
+- [ ] Git-like SCM
 ## Get Started
 - Clone this Reposirory:
 ```

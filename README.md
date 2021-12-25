@@ -16,6 +16,7 @@ Project Started At 1 October 2021
 - [x] Explore Repo Files
 - [x] Edit Files Online 
 - [ ] Delete Files and Folders **[WIP]**
+- [ ] Load PDF, Jupyter Notebook Online
 - [ ] Issues **[WIP]**
 - [ ] Private Repos
 - [ ] Fork Repository 

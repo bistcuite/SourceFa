@@ -1,8 +1,4 @@
-<div align="center">
-
 # SourceFa
-
-</div>
 
 **SourceFa** is an open-source persian repository management system written in django.
 

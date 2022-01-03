@@ -22,7 +22,7 @@ Project Started At 1 October 2021
 - [ ] RESTful API
 - [ ] WhatsApp-Like Status(Story)
 - [ ] Based On Git Version Control System
-- [ ] QT Based Desktop Client(Python)
+- [ ] PyQt5 Based Desktop Client
 - [ ] Branching
 - [ ] Gist Service
 - [ ] Support LaTex

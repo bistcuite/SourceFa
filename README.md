@@ -28,6 +28,7 @@ Project Started At 1 October 2021
 - [ ] Support LaTex
 - [ ] Git-like SCM
 - [ ] Detect licences
+- [ ] Basic project manager
 
 ## Get Started
 - Clone this Reposirory:

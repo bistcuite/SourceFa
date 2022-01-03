@@ -33,6 +33,7 @@ Project Started At 1 October 2021
 - [ ] Show pdf resume on profile page
 - [ ] Delete account
 - [ ] Detect languages percent
+- [ ] Organization
 
 ## Get Started
 - Clone this Reposirory:

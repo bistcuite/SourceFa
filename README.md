@@ -30,6 +30,7 @@ Project Started At 1 October 2021
 - [ ] Detect licences
 - [ ] Basic project manager
 - [ ] Share post with followers
+- [ ] Show pdf resume on profile page
 
 ## Get Started
 - Clone this Reposirory:

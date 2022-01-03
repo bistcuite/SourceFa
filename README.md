@@ -32,6 +32,7 @@ Project Started At 1 October 2021
 - [ ] Share post with followers
 - [ ] Show pdf resume on profile page
 - [ ] Delete account
+- [ ] Detect languages percent
 
 ## Get Started
 - Clone this Reposirory:

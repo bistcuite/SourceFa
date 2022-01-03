@@ -27,6 +27,7 @@ Project Started At 1 October 2021
 - [ ] Gist Service
 - [ ] Support LaTex
 - [ ] Git-like SCM
+- [ ] Detect licences
 
 ## Get Started
 - Clone this Reposirory:

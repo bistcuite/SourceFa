@@ -31,6 +31,7 @@ Project Started At 1 October 2021
 - [ ] Basic project manager
 - [ ] Share post with followers
 - [ ] Show pdf resume on profile page
+- [ ] Delete account
 
 ## Get Started
 - Clone this Reposirory:

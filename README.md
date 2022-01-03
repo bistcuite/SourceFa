@@ -29,6 +29,7 @@ Project Started At 1 October 2021
 - [ ] Git-like SCM
 - [ ] Detect licences
 - [ ] Basic project manager
+- [ ] Share post with followers
 
 ## Get Started
 - Clone this Reposirory:

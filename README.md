@@ -41,10 +41,12 @@ Project started at ***1 October 2021***
 ```
 $ git clone https://github.com/SourceFa/SourceFa.git
 ```
+
 - Go to SourceFa folder :
 ```
 $ cd SourceFa/src
 ```
+
 - Configure Project :
 ```
 $ pip install -r requirments.txt

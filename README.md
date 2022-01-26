@@ -66,5 +66,5 @@ You can see all screenshots from sourcefa, [here](/screenshots/).
 This project licensed under the **GPL-V3** License, read the license [here](LICENSE).
 
 ## About
-Copyright 2021 &copy; **SourceFa**, \
+Copyright 2021-2022 &copy; **SourceFa**, \
 all rights reserved.

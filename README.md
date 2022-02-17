@@ -5,7 +5,7 @@ Project started at ***1 October 2021***.
 
 ## Features
 - [x] Public Repos
-- [x] Markdown Based Readme
+- [x] Markdown Based Readmes
 - [x] Commit to repo 
 - [x] Profile Page
 - [x] Download Zip File of repo

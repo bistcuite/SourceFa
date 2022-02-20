@@ -13,7 +13,7 @@ Project started at ***1 October 2021***.
 - [x] Edit Files Online 
 - [ ] Delete Files and Folders **[WIP]**
 - [ ] Load PDF, Jupyter Notebook Online
-- [ ] Issues **[WIP]**
+- [ ] Issues
 - [ ] Private Repos
 - [ ] Fork Repository 
 - [ ] Pull Request 

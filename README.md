@@ -67,6 +67,7 @@ $ python manage.py runserver
 
 ## Screenshots
 You can see all screenshots from sourcefa, [here](/screenshots/).
+
 ## License
 This project licensed under the **GPL-V3** License, read the license [here](LICENSE).
 

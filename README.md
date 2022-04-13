@@ -29,7 +29,6 @@ Project started at ***1 October 2021***.
 - [ ] Git-like SCM
 - [ ] Detect licences
 - [ ] Basic project manager
-- [ ] Share story with followers
 - [ ] Show pdf resume on profile page
 - [ ] Delete account
 - [ ] Detect languages percents

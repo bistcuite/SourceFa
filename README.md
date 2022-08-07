@@ -1,7 +1,5 @@
 # SourceFa
-**SourceFa** is an open-source persian repository management system written in django.
-
-Project started at ***1 October 2021***.
+**SourceFa** is #JustForFun project to make a persian version of GitHub with python and django.
 
 ## Features
 - [x] Public Repos
@@ -12,27 +10,11 @@ Project started at ***1 October 2021***.
 - [x] Explore Repo Files
 - [x] Edit Files Online 
 - [ ] Delete Files and Folders **[WIP]**
-- [ ] Load PDF, Jupyter Notebook Online
 - [ ] Issues
-- [ ] Private Repos
 - [ ] Fork Repository 
 - [ ] Pull Request 
-- [ ] Admin Page
-- [ ] Explorer
-- [ ] RESTful API
-- [ ] WhatsApp-Like Status(Story)
-- [ ] Based On Git Version Control System
-- [ ] PyQt5 Based Desktop Client
 - [ ] Branching
-- [ ] Gist Service
-- [ ] Support LaTex
-- [ ] Git-like SCM
-- [ ] Detect licences
-- [ ] Basic project manager
-- [ ] Show pdf resume on profile page
-- [ ] Delete account
-- [ ] Detect languages percents
-- [ ] Organization
+
 
 ## Get Started
 - Clone this Reposirory:
@@ -65,11 +47,6 @@ $ python manage.py runserver
 - Now go to [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 ## Screenshots
-You can see all screenshots from sourcefa, [here](/screenshots/).
 
 ## License
 This project licensed under the **GPL-V3** License, read the license [here](LICENSE).
-
-## About
-Copyright 2021-2022 &copy; **SourceFa**, \
-all rights reserved.

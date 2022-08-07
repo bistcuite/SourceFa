@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<br/>
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+      </div>
+    <div class="row align-items-center card  ">
+        <div class="card">
+            <div class="card-header">
+                مخزن جدید
+            </div>
+            
+            <div class="card-body">
+            <form action="{% url 'newrepo' %}" method="POST">
+                {% csrf_token %}
+                
+                <br>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="{{user.username}}" readonly>
+                    <br>
+                    {{ form.repo_name.label_tag }}
+                    {{ form.repo_name }}
+                    <small class="form-text text-muted">تنها استفاده از حروف انگلیسی مجاز است</small>
+
+                </div>
+                <div class="form-group">
+                    {{ form.desc.label_tag }}
+                    {{ form.desc }}
+                </div>
+            
+                <button type="submit" class="btn btn-primary">ایجاد مخزن</button> 
+            </form>
+            </div>
+            <br>
+        </div>
+    </div>
+
+      <div class="col-sm"></div>
+    </div>
+</div>
+  
+  
+
+{% endif %} 
+{% endblock content %}

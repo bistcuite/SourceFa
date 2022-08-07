@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<br/>
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+      </div>
+    <div class="row ">
+        <div class="card">
+            <div class="card-header">
+                ثبت نام در سورس فا
+            </div>
+            
+            <div class="card-body">
+                <form method="post">
+                    {{ form.non_field_errors }}
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label for="id_username">نام کاربری :</label>
+                        <input style="text-align: left;" id="id_username" type="text" name="username" autocomplete="username" maxlength="150" class="form-control" autofocus required>
+                        {{ form.username.errors }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_email">ایمیل :</label>
+                        <input style="text-align: left;" id="id_email" type="email" name="email" maxlength="254" class="form-control" required>
+                        {{ form.email.errors }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_password1">رمز عبور :</label>
+                        <input style="text-align: left;" id="id_password1" type="password" name="password1" autocomplete="current-password" class="form-control" required>
+                        {{ form.password1.errors }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_password2">تایید رمز عبور :</label>
+                        <input style="text-align: left;" id="id_password2" type="password" name="password2" class="form-control" required>
+                        {{ form.password2.errors }}
+                    </div>
+
+                    <button type="submit" class="btn btn-block btn-success">ثبت نام</button>
+                </form>
+                <br/>
+                حساب کاربری دارید ؟ <a href="/profile/login">وارد شوید</a>
+            </div>
+            <br>
+        </div>
+    </div>
+
+      <div class="col-sm"></div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<br/>
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+      </div>
+    <div class="row ">
+        <div class="card">
+            <div class="card-header">
+                آپلود فایل در مخزن
+            </div>
+            
+            <div class="card-body">
+                <form action="{% url 'uploadrepo' user_id repo_name %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                
+                    {{ form.as_p}}
+            
+                    <button type="submit" class="btn btn-block btn-success">کامیت در مخزن</button> 
+                </form>
+            </div>
+            <br>
+        </div>
+    </div>
+
+      <div class="col-sm"></div>
+    </div>
+</div>
+
+{% endblock content %}

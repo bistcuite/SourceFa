@@ -1,5 +1,5 @@
 # SourceFa
-**SourceFa** is #JustForFun project to make a persian version of GitHub with python and django.
+**SourceFa** is a #JustForFun project to make a persian version of GitHub with python and django.
 
 ## Features
 - [x] Public Repos
